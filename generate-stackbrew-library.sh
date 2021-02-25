@@ -10,6 +10,10 @@ defaultDebianSuite='buster'
 declare -A debianSuite=(
 	#[1.13-rc]='buster'
 )
+defaultUbuntuSuite='focal'
+declare -A ubuntuSuite=(
+	#[1.13-rc]='focal'
+)
 defaultAlpineVersion='3.13'
 declare -A alpineVersion=(
 	#[1.9]='3.7'
@@ -115,6 +119,11 @@ for version; do
 
 		if [ "${variant#alpine}" = "${alpineVersion[$version]:-$defaultAlpineVersion}" ]; then
 			variantAliases+=( "${baseAliases[@]/%/-alpine}" )
+			variantAliases=( "${variantAliases[@]//latest-/}" )
+		fi
+
+		if [ "${variant#focal}" = "${ubuntuSuite[$version]:-$defaultUbuntuSuite}" ]; then
+			variantAliases+=( "${baseAliases[@]/%/-focal}" )
 			variantAliases=( "${variantAliases[@]//latest-/}" )
 		fi
 

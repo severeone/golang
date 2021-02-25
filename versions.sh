@@ -161,6 +161,7 @@ for version in "${versions[@]}"; do
 	# order here controls the order of the library/ file
 	for variant in \
 		buster \
+		focal \
 		stretch \
 		\
 		alpine3.13 \

@@ -51,6 +51,10 @@ for version; do
 				template="Dockerfile-windows-$windowsVariant.template"
 				;;
 
+			focal*)
+				template='Dockerfile-ubuntu.template'
+				;;
+
 			*)
 				template='Dockerfile-debian.template'
 				;;
